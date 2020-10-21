@@ -9,7 +9,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/zainaweb/sate'></a>
 
 includes:
   - errors
@@ -21,50 +21,50 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Sate API! This document describes how 3rd party applications can integrate with Sate, to create and monitor a wealth of services that we offer.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We currently have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+If you would like to request any additional bindings, then please contact the Technology Team at tech@sate.com.au and we will aim to add them in the near future.
 
 # Authentication
 
 > To authorize, use this code:
 
 ```ruby
-require 'kittn'
+require 'sate'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Sate::APIClient.authorize!('your_api_key')
 ```
 
 ```python
-import kittn
+import sate
 
-api = kittn.authorize('meowmeowmeow')
+api = sate.authorize('your_api_key')
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl --header "Authorization: Bearer [YOUR_TOKEN]" https://app.sate.com.au/api/v1/
+   
 ```
 
 ```javascript
-const kittn = require('kittn');
+const sate = require('sate');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = sate.authorize('yourapikey');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `your api key` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Sate uses API Bearer Tokens to permit access to our API. You can register for a new Lendflow API key on our [client portal](http://sate.com.au) in less than 60 seconds.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Sate expects for the Bearer Token to be included in all API requests made to the server in the header that takes the following form:
 
-`Authorization: meowmeowmeow`
+`Authorization: Bearer [YOUR_TOKEN]`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>[YOUR_TOKEN]</code> with your personal API key.
 </aside>
 
 # Kittens
