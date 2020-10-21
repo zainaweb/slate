@@ -67,22 +67,22 @@ Sate expects for the Bearer Token to be included in all API requests made to the
 You must replace <code>[YOUR_TOKEN]</code> with your personal API key.
 </aside>
 
-# Kittens
+# Application
 
-## Get All Kittens
+## Apply for Capital
 
 ```ruby
-require 'kittn'
+require 'sate'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+api = Sate::APIClient.authorize!('your_api_key')
+api.sate.get
 ```
 
 ```python
-import kittn
+import sate
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+api = sate.authorize('your_api_key')
+api.sate.get()
 ```
 
 ```shell
@@ -118,18 +118,48 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint, allows registered users, to efficiently and securely submit a request for funding in the Sate system.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://app.sate.com.au/api/v1/application`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+sandbox	| false	| Perform a test run.
+uuid | false | Custom identifier to attach to application.
+dba_name	| true	| Business name of the company applying for funding.
+first_name | true	| First name of the primary business holder.
+last_name	| true	| Last name of the primary business holder.
+phone_number	| true	| Phone number of the primary business owner.
+email_address	| true	| Email address of the primary business owner.
+owner_date_of_birth	| true | Date of birth of the primary business owner.
+owner_home_address	| true | First line of address of the primary business owner.
+owner_city	| true	| The city of the primary business owner.
+owner_state	| true	| The state of the primary business owner.
+owner_zip	| true	| The postcode of the primary business owner.
+owner_tfn |	true	| The tax file number of the primary business owner.
+use_of_funds	| true	| The reason the business is applying for funding.
+amount_needed	| true	| The requested amount to be funded.
+business_entity_type	| true	| The type of business.
+business_start_date	| true	| The date the business was started.
+business_address	| true	| The first line of the business address.
+business_city	| true	| The city that the business is regestered in.
+business_state	| true	| The state that the business is regestered in.
+business_postcode	| true	| The post code that the business is regestered in.
+number_of_owners	| false	| The number of business owners.
+other_owners.*.first_name	| false	| The first name of the additional business owner.
+other_owners.*.last_name	| false	| The last name of the additional business owner.
+other_owners.*.address	| false	| The first line of address of the additonal business owner.
+other_owners.*.city	| false	| The city of the additional business owner.
+other_owners.*.state	| false	| The state of the additonal business owner.
+other_owners.*.postcode	| false	| The post code of the additonal business owner.
+other_owners.*.tfn	| false	| The tax file number of the additonal business owner.
+other_owners.*.dob	| false	| The date of birth of the additional business owner.
+other_owners.*.ownership	| false	| The percentage of onwership of the additional business owner.
+
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
