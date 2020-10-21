@@ -4,12 +4,12 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
-  - python
+  # - python
   - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/zainaweb/sate'></a>
+  - <a href='https://sate.com.au'></a>
 
 includes:
   - errors
@@ -50,7 +50,7 @@ curl --header "Authorization: Bearer [YOUR_TOKEN]" https://app.sate.com.au/api/v
 ```
 
 ```javascript
-const sate = require('sate');
+const sate = require('yourapikey');
 
 let api = sate.authorize('yourapikey');
 ```
@@ -126,41 +126,26 @@ curl --header "Content-Type: application/json" \
         }
     ]
   }' https://app.sate.com.au/api/v1/application
-The above command returns JSON structured like this:
+ 
 
-{
-    "data": {
-        "application_identifier": "6ojd9c373-2v87-4177-8b189-c2w8aa24g221"
-    }
-}
+
 ```
 
 ```javascript
 const sate = require('sate');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+let api = sate.authorize('yourapikey');
+let api = api.application.get();
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+    "data": {
+        "application_identifier": "6ojd9c373-2v87-4177-8b189-c2w8aa24g221"
+    }
+}
 ```
 
 This endpoint, allows registered users, to efficiently and securely submit a request for funding in the Sate system.
@@ -210,7 +195,7 @@ other_owners.*.ownership	| false	| The percentage of onwership of the additional
 Remember — all requests made to the API, need to be authenticated.
 </aside>
 
-## Get a Specific Kitten
+<!-- ## Get a Specific Kitten
 
 ```ruby
 require 'kittn'
@@ -312,5 +297,5 @@ This endpoint deletes a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the kitten to delete -->
 
