@@ -86,12 +86,57 @@ api.sate.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl --header "Content-Type: application/json" \
+  --header "Authorization: Bearer [YOUR_TOKEN]" \
+  --request POST \
+  --data '{
+    "sandbox": "false",
+    "uuid": "CUSTOM-IDENTIFIER-123456789",
+    "dba_name": "Jonathan Parks Travel",
+    "first_name": "Joe",
+    "last_name": "Client",
+    "phone_number":0404 888 888,
+    "email_address": "jclient@afsllicencedco.com.au",
+    "owner_date_of_birth": "01/12/1982",
+    "owner_home_address": "12 Home Street",
+    "owner_city": "Sydney",
+    "owner_state": "NSW",
+    "owner_postcode": 2000,
+    "owner_tfn": 123321232,
+    "use_of_funds": "Own use",
+    "amount_needed": 10000,
+    "business_entity_type": "Travel Agency",
+    "business_start_date": "22/12/2000",
+    "business_address": "21 George Street",
+    "business_city": "Sydney",
+    "business_state": "NSW",
+    "business_postcode": 2000,
+    "number_of_owners": 1,
+    "other_owners": [
+        {
+            "first_name": "Jack",
+            "last_name": "Palance",
+            "address": "12 Western st",
+            "city": "Sydney",
+            "state": "NSW",
+            "postcode": 2000,
+            "tfn": 432343234,
+            "dob": "02/02/1981",
+            "ownership": "50"
+        }
+    ]
+  }' https://app.sate.com.au/api/v1/application
+The above command returns JSON structured like this:
+
+{
+    "data": {
+        "application_identifier": "6ojd9c373-2v87-4177-8b189-c2w8aa24g221"
+    }
+}
 ```
 
 ```javascript
-const kittn = require('kittn');
+const sate = require('sate');
 
 let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
@@ -139,7 +184,7 @@ owner_date_of_birth	| true | Date of birth of the primary business owner.
 owner_home_address	| true | First line of address of the primary business owner.
 owner_city	| true	| The city of the primary business owner.
 owner_state	| true	| The state of the primary business owner.
-owner_zip	| true	| The postcode of the primary business owner.
+owner_postcode	| true	| The postcode of the primary business owner.
 owner_tfn |	true	| The tax file number of the primary business owner.
 use_of_funds	| true	| The reason the business is applying for funding.
 amount_needed	| true	| The requested amount to be funded.
@@ -162,7 +207,7 @@ other_owners.*.ownership	| false	| The percentage of onwership of the additional
 
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — all requests made to the API, need to be authenticated.
 </aside>
 
 ## Get a Specific Kitten
